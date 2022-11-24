@@ -612,13 +612,12 @@ if 'linux' == sys.platform:
     key = 'HOME'
     downloadfolder = 'ダウンロード'
 folder = os.path.join(os.getenv(key), downloadfolder)
-folder = "D:\Downloads"
 
 def thread_web():
     app = Flask(__name__,
                 static_url_path='', 
                 static_folder=folder)
-    app.run(port=8080)
+    app.run(host='127.0.0.1', port=8080)
     while True:
         if True == web_stop:
             break
