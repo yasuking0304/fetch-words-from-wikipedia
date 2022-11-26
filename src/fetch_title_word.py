@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 # Fetch title words from Wikipedia
 # (C) Yasuking0304, MIT License.
-import requests
 import bz2
-import os
 from flask import Flask
+import os
+import requests
+import sys
 import threading
 import time
-import sys
 
 hira_tbl =  'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん' \
             'がぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽゐゑゔ' \
@@ -322,8 +322,6 @@ def get_play_by_play(in_str: str):
     if  '問題' in title:
         return None
     if  '事件' in title:
-        return None
-    if  '吹奏楽' in title:
         return None
     data = '"' + title + '","' + get_kana(in_str, title) + '","' + part_os_speeech + '",""'
     print(data)
